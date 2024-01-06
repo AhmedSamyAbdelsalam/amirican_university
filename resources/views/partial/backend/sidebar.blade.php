@@ -8,7 +8,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <img src="{{ asset('assets/logo/logo3.jpg') }}" width="50" alt="{{ config('app.name') }}">
+            <img src="{{ asset('backend/img/logo.png') }}" width="50" alt="{{ config('app.name') }}">
         </div>
         <div class="sidebar-brand-text mx-3">{{ config('app.name') }}</div>
     </a>

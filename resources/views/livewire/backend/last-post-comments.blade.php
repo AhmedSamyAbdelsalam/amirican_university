@@ -52,21 +52,19 @@
                         <tr>
                             <th>Name</th>
                             <th>Comment</th>
-                            <th>Status</th>
                             <th>Date</th>
                         </tr>
                         </thead>
                         <tbody>
                         @forelse($comments as $comment)
                             <tr>
-                                <td>{{ $comment->name }}</td>
-                                <td>{{ \Illuminate\Support\Str::limit($comment->comment, 25, '....') }}</td>
-                                <td>{{ $comment->status() }}</td>
+                                <td>{{ \Illuminate\Support\Str::limit($comment->name, 10, '...') }}</td>
+                                <td>{{ \Illuminate\Support\Str::limit($comment->comment, 20, '...') }}</td>
                                 <td>{{ $comment->created_at->diffForHumans() }}</td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4">No comments found</td>
+                                <td colspan="3">No comments found</td>
                             </tr>
                         @endforelse
                         </tbody>
