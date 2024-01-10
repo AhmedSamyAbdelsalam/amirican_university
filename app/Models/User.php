@@ -42,11 +42,11 @@ class User extends Authenticatable
 //    {
 //        return $this->where('username', $username)->first();
 //    }
-
-    public function receivesBroadcastNotificationsOn()
-    {
-        return 'App.User.'.$this->id;
-    }
+//
+//    public function receivesBroadcastNotificationsOn()
+//    {
+//        return 'App.User.'.$this->id;
+//    }
 
 
 public function posts()

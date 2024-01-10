@@ -17,7 +17,7 @@
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
 
-                                {!! Form::open(['route' => 'admin.show_login_form', 'method' => 'post']) !!}
+                                {!! Form::open(['route' => 'show_login_form', 'method' => 'post']) !!}
                                 <div class="form-group">
                                     {!! Form::text('username', old('username'), ['class' => 'form-control form-control-user', 'placeholder' => 'Enter your username']) !!}
                                     @error('username') <span class="text-danger">{{ $message }}</span>@enderror
@@ -34,11 +34,6 @@
                                 </div>
                                 {!! Form::button('Login', ['type' => 'submit', 'class' => 'btn btn-primary btn-user btn-block']) !!}
                                 {!! Form::close() !!}
-
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
-                                </div>
                             </div>
                         </div>
                     </div>

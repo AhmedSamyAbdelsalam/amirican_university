@@ -25,10 +25,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',                                [BackendLoginController::class, 'showLoginForm'])->name('show_login_form');
+Route::post('',                                [BackendLoginController::class, 'login'])->name('login');
+
 
 
 Route::get('password/reset',                            [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -45,12 +50,15 @@ Route::post('email/resend',                             [VerificationController:
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     // Authentication Routes...
-    Route::get('/login',                                [BackendLoginController::class, 'showLoginForm'])->name('show_login_form');
-    Route::post('login',                                [BackendLoginController::class, 'login'])->name('login');
+//    Route::get('/login',                                [BackendLoginController::class, 'showLoginForm'])->name('show_login_form');
+//    Route::post('login',                                [BackendLoginController::class, 'login'])->name('login');
     Route::post('logout',                               [BackendLoginController::class, 'logout'])->name('logout');
     Route::group(['middleware' => ['roles', 'role:admin|editor']], function() {
         Route::get('/',                                 [AdminController::class, 'index'])->name('index_route');
         Route::get('/index',                            [AdminController::class, 'index'])->name('index');
+        Route::get('/edit-info',                            [AdminController::class, 'edit_info'])->name('edit_info');
+        Route::post('/edit-info',                           [AdminController::class, 'update_info'])->name('update_info');
+        Route::post('/edit-password',                       [AdminController::class, 'update_password'])->name('update_password');
         Route::post('/posts/removeImage/{media_id}',    [PostsController::class, 'removeImage'])->name('posts.media.destroy');
         Route::resource('posts',                        PostsController::class);
         Route::post('/pages/removeImage/{media_id}',    [PagesController::class, 'removeImage'])->name('pages.media.destroy');

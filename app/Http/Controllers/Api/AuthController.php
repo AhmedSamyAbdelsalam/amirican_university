@@ -72,6 +72,25 @@ class AuthController extends Controller
         ]);
 
         return response()->json($response->json(), 200);
+//        $verifyValue = app()->environment() == 'local' ? false : true;
+//
+//        $response = Http::withOptions([
+//            'verify' => $verifyValue,
+//        ])->post(config('app.url') . '/oauth/token', [
+//            'grant_type' => 'password',
+//            'client_id' => config('passport.personal_access_client.id'),
+//            'client_secret' => config('passport.personal_access_client.secret'),
+//            'username' => $email,
+//            'password' => $password,
+//            'scope' => '*',
+//        ]);
+//
+//        if ($response->failed()) {
+//
+//            return response()->json(['error' => 'Failed to retrieve token'], 500);
+//        }
+//
+//        return $response->json();
     }
 
     public function refresh_token(Request $request)

@@ -41,10 +41,10 @@ class ApiController extends Controller
     public function users_chart()
     {
 
-        $users = User::withCount('posts')
-            ->orderBy('posts_count', 'desc')
+        $users = User::withCount('comments')
+            ->orderBy('comments_count', 'desc')
             ->take(3)
-            ->pluck('posts_count', 'name');
+            ->pluck('comments_count', 'name');
 
 
         $chart['labels'] = $users->keys()->toArray();

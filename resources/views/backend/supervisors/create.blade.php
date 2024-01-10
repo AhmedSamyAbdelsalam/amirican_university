@@ -115,7 +115,7 @@
     </div>
 
 
-    {{ var_dump($errors) }}
+{{--    {{ var_dump($errors) }}--}}
 
 @endsection
 @section('script')

@@ -82,7 +82,7 @@ class PostsController extends Controller
             return redirect('admin/index');
         }
 
-        $validator = Validator::make($request->all(), [
+        $validator = validator($request->all(), [
             'title'         => 'required',
             'description'   => 'required|min:50',
             'status'        => 'required',
@@ -91,9 +91,11 @@ class PostsController extends Controller
             'images.*'      => 'nullable|mimes:jpg,jpeg,png,gif|max:20000',
             'tags.*'        => 'required',
         ]);
-        if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+
+       if($validator->fails()) {
+            // dd($validator->errors());
+           return redirect()->back()->withErrors($validator)->withInput();
+       }
 
         $data['title']              = $request->title;
         $data['description']        = Purify::clean($request->description);

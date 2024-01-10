@@ -17,6 +17,14 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                /*background-image:url('../../public/assets/tmp/01.jpg');*/
+                /*height:100vh;*/
+                /*background-repeat: no-repeat;*/
+                /*width:100%;*/
+                /*background-size: cover;*/
+                /*background-position: center;*/
+                /*margin: 0;*/
+                /*padding: 0;*/
             }
         </style>
     </head>
