@@ -15,7 +15,6 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
     @role(['admin'])
         @foreach($admin_side_menu as $menu)
             @if (count($menu->appearedChildren) == 0)
